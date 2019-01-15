@@ -1,4 +1,5 @@
 from random import randint as ri
+from random import sample
 
 M = list(range(10))
 
@@ -15,6 +16,11 @@ def banerokrutilka(M):
 banerokrutilka2 = lambda M: [M.pop(ri(0, i - 1)) for i in range(len(M), 0, -1)]
 
 
+def banerokrutilka3(M):
+    from random import sample
+    return sample(M, len(M))
+
+
 def checker(before, after):
     # print('before = ', before, 'after = ', after)
     # print(len(before) == len(after))
@@ -28,6 +34,7 @@ def checker(before, after):
 
 if __name__ == '__main__':
     # banerokrutilka2(M)
-    print(
-        checker(M.copy(), banerokrutilka2(M))
-    )
+    # print(
+    #     checker(M.copy(), banerokrutilka2(M))
+    # )
+    print(checker(M.copy(), banerokrutilka3(M)))
